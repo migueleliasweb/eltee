@@ -1,2 +1,2 @@
-# eltee
-(LT) Eltee stands for "LOADTEST"
+# ELTEE
+(LT) ELTEE stands for "LOADTEST"
