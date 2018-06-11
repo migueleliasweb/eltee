@@ -1,8 +1,6 @@
 package benchmarks
 
 import (
-	"math"
-	"math/rand"
 	"testing"
 
 	"gonum.org/v1/gonum/stat"
@@ -37,44 +35,6 @@ func BenchmarkGoNumMean5000(b *testing.B) {
 	b.StartTimer()
 	for n := 0; n < b.N; n++ {
 		stat.Mean(data, nil)
-	}
-	b.StopTimer()
-
-}
-
-//BenchmarkGoNumMin5000 Benchmarks math.Min
-func BenchmarkGoNumMin5000(b *testing.B) {
-	var data []float64
-
-	for n := range rand.Perm(5000) {
-		data = append(data, float64(n))
-	}
-
-	b.StartTimer()
-	max := float64(0)
-	for n := 0; n < b.N; n++ {
-		for _, n := range data {
-			max = math.Min(max, n)
-		}
-	}
-	b.StopTimer()
-
-}
-
-//BenchmarkIntMapAppend Benchmarks math.Max
-func BenchmarkGoNumMax5000(b *testing.B) {
-	var data []float64
-
-	for n := range rand.Perm(5000) {
-		data = append(data, float64(n))
-	}
-
-	b.StartTimer()
-	max := float64(0)
-	for n := 0; n < b.N; n++ {
-		for _, n := range data {
-			max = math.Max(max, n)
-		}
 	}
 	b.StopTimer()
 
